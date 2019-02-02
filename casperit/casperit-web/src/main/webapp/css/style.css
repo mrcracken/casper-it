@@ -1,0 +1,267 @@
+html{
+    overflow:  hidden;
+text-decoration: none;
+outline: none;
+}
+
+.fluid-container{
+    background-color: black;
+    height: 100vh;
+}
+
+.content{
+    background-color: #2B2C32;
+    height: 460px;
+    border-radius: 0 0 20px 20px;
+}
+
+#ghost{
+    width: 80px;
+    margin: 10px 0 10px 0;
+}
+
+#title{
+    font-family: 'Rubik', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #599DE5;
+    margin-top:30px;
+}
+
+#person{
+    width: 40px;
+	height: 40px;
+	background: #53565D;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+    float: right;
+    margin-top: 30px;
+}
+
+.navigation{
+    padding-left: 0px;
+    font-family: 'Rubik', sans-serif;
+    padding: 0 0 10px 10px;
+    color: white;
+}
+
+#tab_room, #tab_place{
+    color:gray;
+    border-bottom: 3px solid black;
+}
+
+ #tab_room:active{
+    border-bottom: 3px solid blue;
+    color:white;
+    border-radius: 0px;
+}
+
+#tab_place:active{
+    border-bottom: 3px solid blue;
+    border-radius: 0px;
+    color:white;
+}
+
+.navigat{
+    padding-left: 0px;
+    top:10px;
+}
+
+.nav-link{
+    text-decoration: none;
+    background-color: black;
+    border:none;
+    color:black;
+    border-bottom: 3px solid blue;
+    outline: none;
+}
+
+nav{
+    padding-right: 45px;
+}
+
+.offices{
+    background-color: #2B2C32;
+    border: 1px solid #53565D;
+    margin-right: 23px;
+    margin-top:20px;
+    cursor: pointer;
+    color:#53565D;
+}
+
+.search{
+    background-color: #2B2C32;
+    border: 1px solid white;
+    cursor: pointer;
+    color:white;
+    border-radius: 20px;
+    outline: none;
+    padding: 5px 0 5px 0;
+    width: 200px;
+    margin: 10px 0 0 15px;
+}
+
+
+
+.offices:active{
+    background-color: #207DDF;
+    color: black;
+    border:none;
+}
+
+.office_programmistov{
+    border-radius: 20px;
+    outline: none;
+    padding: 5px 0 5px 0;
+    width: 200px;
+}
+
+.office_kuprevicha{
+    border-radius: 20px;
+    outline: none;
+    padding: 5px 0 5px 0;
+    width: 200px;
+}
+
+.office_bogdanovicha{
+    border-radius: 20px;
+    outline: none;
+    padding: 5px 0 5px 0;
+    width: 200px;
+}
+
+.office_kulman{
+    border-radius: 20px;
+    outline: none;
+    padding: 5px 0 5px 0;
+    width: 200px;
+}
+
+.buttons{
+    cursor: pointer;
+}
+
+#circle-red{
+    width: 20px;
+	height: 20px;
+	background-color: red;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+
+#circle-gray{
+    width: 20px;
+	height: 20px;
+	background-color: gray;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+
+#circle-aqua{
+    width: 20px;
+	height: 20px;
+	background-color: aqua;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+
+.circle{
+    display: inline-block;
+    color:white;
+    margin-top: 10px;
+}
+
+.circles{
+    
+    margin: 10px 0 5px 0px;
+}
+
+.circletext{
+    vertical-align: -webkit-baseline-middle;
+    display: inline-block;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.cir{
+    margin-left: 30px;
+}
+
+th, td, tr{
+    color:white;
+    
+}
+
+.title_table{
+    color:white;
+}
+
+th,tr{
+    text-align: center;
+}
+
+.circle-table{
+    color:white;
+    margin-left: 30%;
+}
+
+th{
+    font-weight: 500;
+    font-size: 16px;
+}
+
+td{
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.col-md-auto{
+    padding-left: 0px;
+}
+
+.table{
+    padding: 0 5px 0 5px;
+    width: 80%;
+}
+
+.table thead th{
+    border-bottom:0px;
+}
+
+.table thead th{
+    border-top: 1px solid #36383F;
+}
+
+.search_room{
+    background: #00458F;
+    border:none;
+    cursor: pointer;
+    color:white;
+    border-radius: 20px;
+    outline: none;
+    width: 150px;
+    padding: 2px;
+}
+
+.table td{
+    border-top:1px solid #36383F;
+}
+
+.select{
+    border: 1px solid #2b2c32;
+}
+
+.select:active{
+    background: #202126;
+    border: 1px solid #599DE5;
+    border-top-style: double;
+    border-bottom-style: double;
+}
+
+.select:hover{
+    cursor: pointer;
+}
