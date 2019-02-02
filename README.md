@@ -1,1 +1,1 @@
-# pickycat-python
+# casper-it
