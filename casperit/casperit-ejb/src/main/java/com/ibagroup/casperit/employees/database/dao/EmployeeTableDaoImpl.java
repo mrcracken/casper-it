@@ -38,7 +38,7 @@ public class EmployeeTableDaoImpl implements Serializable {
 	*/
 	public List<EmployeeTable> retrieveEmployeeTableByParams(EmployeeTableSearchParams params) throws NonUniqueResultException {
 		if (params.getId() != null || params.getFirstName() != null || params.getLastName() != null || params.getPhone() != null || params.getSpecialization() != null || params.getFloor() != null || params.getPhone() !=null || params.getSpace() != null || params.getCode() != null || params.getAddress() != null) {
-			TypedQuery<EmployeeTable> query = em.createQuery("SELECT e FROM EmployeeTable e WHERE e.id = :id OR e.employee.firstName = :firstName OR e.employee.lastName = :lastName OR e.employee.specialization = :specialization OR e.employee.phone = :phone OR e.code = :code OR e.floor = :floor OR e.space = :space OR e.address = :address", EmployeeTable.class);
+			TypedQuery<EmployeeTable> query = em.createQuery("SELECT e FROM EmployeeTable e WHERE e.id = :id OR e.employee.firstName = :firstName OR e.employee.lastName = :lastName OR e.employee.specialization = :specialization OR e.employee.phone = :phone OR e.code = :code OR e.floor = :floor OR e.space = :space OR e.address = :address ORDER BY e.code", EmployeeTable.class);
 		  	  	if (params.getId() != null)
 			  			query.setParameter("id", params.getId());
 			  		else query.setParameter("id", null);
@@ -72,7 +72,7 @@ public class EmployeeTableDaoImpl implements Serializable {
 					return null;
 				}
 		} else {
-			TypedQuery<EmployeeTable> query = em.createQuery("SELECT DISTINCT e FROM EmployeeTable e ORDER BY e.id", EmployeeTable.class);
+			TypedQuery<EmployeeTable> query = em.createQuery("SELECT DISTINCT e FROM EmployeeTable e ORDER BY e.code", EmployeeTable.class);
 			try {
 				return (List<EmployeeTable>) query.getResultList();
 			} catch (NoResultException exc) {
@@ -87,7 +87,7 @@ public class EmployeeTableDaoImpl implements Serializable {
 	* @return list of EmployeeTable
 	*/
 	public List<EmployeeTable> retrieveEmployeeTableByFSAParams(EmployeeTableSearchParams params) throws NonUniqueResultException {
-			TypedQuery<EmployeeTable> query = em.createQuery("SELECT e FROM EmployeeTable e WHERE e.floor = :floor AND e.space = :space AND e.address = :address", EmployeeTable.class);
+			TypedQuery<EmployeeTable> query = em.createQuery("SELECT e FROM EmployeeTable e WHERE e.floor = :floor AND e.space = :space AND e.address = :address ORDER BY e.code", EmployeeTable.class);
 				if (params.getFloor() != null)
 						query.setParameter("floor", params.getFloor());
 					else query.setParameter("floor", null);

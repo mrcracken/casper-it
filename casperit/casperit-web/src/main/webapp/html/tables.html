@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+
+<head>
+    <style>
+
+    .fluid-container{
+        background-color: black;
+        height: 100vh;
+    }
+
+    .content{
+        background-color: #2B2C32;
+        height: 460px;
+        border-radius: 0 0 20px 20px;
+    }
+
+    #ghost{
+        width: 80px;
+        margin: 10px 0 10px 0;
+    }
+
+    #title{
+        font-family: 'Rubik', sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        color: #599DE5;
+        margin-top:30px;
+    }
+
+    #person{
+        width: 40px;
+        height: 40px;
+        background: #53565D;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        float: right;
+        margin-top: 30px;
+    }
+
+    .navigation{
+        padding-left: 0px;
+        font-family: 'Rubik', sans-serif;
+        padding: 0 0 10px 10px;
+        color: white;
+    }
+
+    #tab_room, #tab_place{
+        color:gray;
+        border-bottom: 3px solid black;
+    }
+
+    #tab_room:active{
+        border-bottom: 3px solid blue;
+        color:white;
+        border-radius: 0px;
+    }
+
+    #tab_place:active{
+        border-bottom: 3px solid blue;
+        border-radius: 0px;
+        color:white;
+    }
+
+    .navigat{
+        padding-left: 0px;
+        top:10px;
+    }
+
+    .nav-link{
+        text-decoration: none;
+        background-color: black;
+        border:none;
+        color:black;
+        border-bottom: 3px solid blue;
+        outline: none;
+    }
+
+    nav{
+        padding-right: 45px;
+    }
+
+    .offices{
+        background-color: #2B2C32;
+        border: 1px solid #53565D;
+        margin-right: 23px;
+        margin-top:20px;
+        cursor: pointer;
+        color:#53565D;
+    }
+
+    .search{
+        background-color: #2B2C32;
+        border: 1px solid white;
+        cursor: pointer;
+        color:white;
+        border-radius: 20px;
+        outline: none;
+        padding: 5px 0 5px 0;
+        width: 200px;
+        margin: 10px 0 0 15px;
+    }
+
+
+
+    .offices:active{
+        background-color: #207DDF;
+        color: black;
+        border:none;
+    }
+
+    .office_programmistov{
+        border-radius: 20px;
+        outline: none;
+        padding: 5px 0 5px 0;
+        width: 200px;
+    }
+
+    .office_kuprevicha{
+        border-radius: 20px;
+        outline: none;
+        padding: 5px 0 5px 0;
+        width: 200px;
+    }
+
+    .office_bogdanovicha{
+        border-radius: 20px;
+        outline: none;
+        padding: 5px 0 5px 0;
+        width: 200px;
+    }
+
+    .office_kulman{
+        border-radius: 20px;
+        outline: none;
+        padding: 5px 0 5px 0;
+        width: 200px;
+    }
+
+    .buttons{
+        cursor: pointer;
+    }
+
+    #circle-red{
+        width: 20px;
+        height: 20px;
+        background-color: red;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+    }
+
+    #circle-gray{
+        width: 20px;
+        height: 20px;
+        background-color: gray;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+    }
+
+    #circle-aqua{
+        width: 20px;
+        height: 20px;
+        background-color: aqua;
+        -moz-border-radius: 50px;
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+    }
+
+    .circle{
+        display: inline-block;
+        color:white;
+        margin-top: 10px;
+    }
+
+    .circles{
+
+        margin: 10px 0 5px 0px;
+    }
+
+    .circletext{
+        vertical-align: -webkit-baseline-middle;
+        display: inline-block;
+        font-size: 12px;
+        margin-left: 5px;
+    }
+
+    .cir{
+        margin-left: 30px;
+    }
+
+    th, td, tr{
+        color:white;
+
+    }
+
+    .title_table{
+        color:white;
+    }
+
+    th,tr{
+        text-align: center;
+    }
+
+    .circle-table{
+        color:white;
+        margin-left: 30%;
+    }
+
+    th{
+        font-weight: 500;
+        font-size: 16px;
+    }
+
+    td{
+        font-weight: normal;
+        font-size: 14px;
+    }
+
+    .col-md-auto{
+        padding-left: 0px;
+    }
+
+    .table{
+        padding: 0 5px 0 5px;
+        width: 80%;
+    }
+
+    .table thead th{
+        border-bottom:0px;
+    }
+
+    .table thead th{
+        border-top: 1px solid #36383F;
+    }
+
+    .search_room{
+        background: #00458F;
+        border:none;
+        cursor: pointer;
+        color:white;
+        border-radius: 20px;
+        outline: none;
+        width: 150px;
+        padding: 2px;
+    }
+
+    .table td{
+        border-top:1px solid #36383F;
+    }
+
+    .select{
+        border: 1px solid #2b2c32;
+    }
+
+    .select:active{
+        background: #202126;
+        border: 1px solid #599DE5;
+        border-top-style: double;
+        border-bottom-style: double;
+    }
+
+    .select:hover{
+        cursor: pointer;
+    }
+
+    .map_container{
+    top: 65px;
+    position: absolute;
+    width: 65%;
+    height: 84%;
+    background-color: black;
+    border-radius: 20px;
+    }
+
+    .line_container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 5px;
+    }
+
+    .set_container{
+    display: inline;
+    align-items: center;
+    text-align: center;
+    }
+
+    .talbe_container{
+    width: 100px;
+    height: 55px;
+    display: inline-table;
+    color: rgba(255,255,255,0.5);
+    border: 1px solid #2B2C32;
+    border-radius: 4px;
+    margin-top:3px;
+    padding-top: 5%;
+    }
+
+    .talbe_container_active{
+    width: 100px;
+    height: 55px;
+    display: inline-table;
+    color: rgba(255,255,255,0.5);
+    border: 1px solid rgb(255,255,255);
+    border-radius: 4px;
+    margin-top: 3px;
+    padding-top: 5%;
+    box-shadow: 0px 0px 15px #207DDF;
+    }
+
+    .talbe_container_hbc{
+    width: 100px;
+    height: 55px;
+    display: inline-table;
+    color: rgba(255,255,255,0.5);
+    border: 1px solid rgb(255,255,255);
+    border-radius: 4px;
+    margin-top: 3px;
+    padding-top: 5%;
+    background-color: #00458F;
+    box-shadow: 0px 0px 15px #207DDF;
+    }
+
+    a:link {
+        text-decoration: none;
+    }
+
+
+    html{
+
+    text-decoration: none;
+    outline: none;
+    }
+
+
+    #find_by_name{
+    text-align: center;
+       border-radius: 25px;
+        border: 1px solid #207DDF;
+        background-color: #404146;
+        color: rgba(255,255,255,0.5);
+
+    }
+    .person_card{
+      position: absolute;
+      left: 77%;
+      top: 23%;
+    text-align: center;
+    }
+
+label{
+  color: rgba(255,255,255,0.3);
+}
+
+span{
+  color: white;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="fluid-container">
+        <div class="row">
+            <div class="col-md-1 offset-md-1 img">
+                <img id="ghost" src="../img/halloween-ghost.png">
+            </div>
+            <div class="col-md-2" id="title">
+                <p>CASPER</p>
+            </div>
+            <div class="col-md-1 offset-md-6">
+                <img id="person" src="../img/twotone_person_black_18dp.png" alt="">
+            </div>
+        </div>
+        <div class="row navigation">
+            <div class="col-md-4 offset-md-1 navigat">
+                <nav class="nav nav-pills nav-fill">
+                    <input type="button" class="nav-item nav-link" href="#" id="tab_place" style="border-bottom: 3px solid #207DDF"  value="Рабочие места сотрудников">
+                    <a class="nav-item nav-link" href="http://localhost:8080/casperit-web/html/reservation.html" id="tab_room">Переговорки</a>
+                </nav>
+            </div>
+        </div>
+
+
+
+        <div class="row justify-content-center">
+            <div class="col-md-10 content">
+
+              <div class="row justify-content-center">
+
+
+                  <div class="col-md-10">
+                    <a href="#" ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path opacity=".87" fill="none" d="M24 0v24H0V0h24z"/><path d="M18.41 16.59L13.82 12l4.59-4.59L17 6l-6 6 6 6 1.41-1.41zM6 6h2v12H6V6z"/></svg></a>
+                    <a href="#" ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"/></svg></a>
+                      <input type="button" class="offices office_programmistov" href="#" value="Программистов, 3">
+                      <input type="button" class="offices office_kuprevicha" href="#" value="Купревича, 14">
+                      <input type="button" class="offices office_kulman" href="#" value="Кульман, 1">
+                      <input type="button" class="offices office_bogdanovicha" href="#" value="М. Богдановича, 155">
+                      <a href="#" ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg></a>
+                  </div>
+
+              </div>
+
+                  <div class="map_container" id="tablesOutput">
+                  </div>
+
+        <div class="person_card" id="employeeCardPl">
+        <!--<input id="find_by_name" type="text" placeholder="Find">
+        <div id="employee_info">
+          <p style="color: #599DE5; font-family: 'Rubik', sans-serif;">Yanochka</p>
+        <img src="../img/halloween-ghost.png"/>
+        <p style="color: white; margin-top: 15px; font-family: 'Rubik', sans-serif;">Программист <3</p>
+        
+        <div style="text-align: left;"><label>Телефон:</label> <span>1111</span></div>
+        <div style="text-align: left;" ><label>Рабочее место:</label> <span>B313</span></div>
+        </div>-->
+        </div>
+                </div>
+
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="../js/main.js"></script>
+</body>
+
+</html>

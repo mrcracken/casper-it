@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+<link rel="stylesheet" href="../css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+
+<head>
+
+    <style>
+        
+        html{
+            overflow:  hidden;
+            text-decoration: none;
+            outline: none;
+        }
+
+        .fluid-container{
+            background-color: black;
+            height: 100vh;
+        }
+
+        .content{
+            background-color: #2B2C32;
+            height: 460px;
+            border-radius: 0 0 20px 20px;
+        }
+
+        #ghost{
+            width: 80px;
+            margin: 10px 0 10px 0;
+        }
+
+        #title{
+            font-family: 'Rubik', sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: #599DE5;
+            margin-top:30px;
+        }
+
+        #person{
+            width: 40px;
+            height: 40px;
+            background: #53565D;
+            -moz-border-radius: 50px;
+            -webkit-border-radius: 50px;
+            border-radius: 50px;
+            float: right;
+            margin-top: 30px;
+        }
+
+        .navigation{
+            padding-left: 0px;
+            font-family: 'Rubik', sans-serif;
+            padding: 0 0 10px 10px;
+            color: white;
+        }
+
+        #tab_room, #tab_place{
+            color:gray;
+            border-bottom: 3px solid black;
+        }
+
+        #tab_room:active{
+            border-bottom: 3px solid blue;
+            color:white;
+            border-radius: 0px;
+        }
+
+        #tab_place:active{
+            border-bottom: 3px solid blue;
+            border-radius: 0px;
+            color:white;
+        }
+
+        .navigat{
+            padding-left: 0px;
+            top:10px;
+        }
+
+        .nav-link{
+            text-decoration: none;
+            background-color: black;
+            border:none;
+            color:black;
+            border-bottom: 3px solid blue;
+            outline: none;
+        }
+
+        nav{
+            padding-right: 45px;
+        }
+
+        .offices{
+            background-color: #2B2C32;
+            border: 1px solid #53565D;
+            margin-right: 23px;
+            margin-top:20px;
+            cursor: pointer;
+            color:#53565D;
+        }
+
+        .search{
+            background-color: #2B2C32;
+            border: 1px solid white;
+            cursor: pointer;
+            color:white;
+            border-radius: 20px;
+            outline: none;
+            padding: 5px 0 5px 0;
+            width: 200px;
+            margin: 10px 0 0 15px;
+        }
+
+
+
+        .offices:active{
+            background-color: #207DDF;
+            color: black;
+            border:none;
+        }
+
+        .office_programmistov{
+            border-radius: 20px;
+            outline: none;
+            padding: 5px 0 5px 0;
+            width: 200px;
+        }
+
+        .office_kuprevicha{
+            border-radius: 20px;
+            outline: none;
+            padding: 5px 0 5px 0;
+            width: 200px;
+        }
+
+        .office_bogdanovicha{
+            border-radius: 20px;
+            outline: none;
+            padding: 5px 0 5px 0;
+            width: 200px;
+        }
+
+        .office_kulman{
+            border-radius: 20px;
+            outline: none;
+            padding: 5px 0 5px 0;
+            width: 200px;
+        }
+
+        .buttons{
+            cursor: pointer;
+        }
+
+        #circle-red{
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            -moz-border-radius: 50px;
+            -webkit-border-radius: 50px;
+            border-radius: 50px;
+        }
+
+        #circle-gray{
+            width: 20px;
+            height: 20px;
+            background-color: gray;
+            -moz-border-radius: 50px;
+            -webkit-border-radius: 50px;
+            border-radius: 50px;
+        }
+
+        #circle-aqua{
+            width: 20px;
+            height: 20px;
+            background-color: aqua;
+            -moz-border-radius: 50px;
+            -webkit-border-radius: 50px;
+            border-radius: 50px;
+        }
+
+        .circle{
+            display: inline-block;
+            color:white;
+            margin-top: 10px;
+        }
+
+        .circles{
+            
+            margin: 10px 0 5px 0px;
+        }
+
+        .circletext{
+            vertical-align: -webkit-baseline-middle;
+            display: inline-block;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+
+        .cir{
+            margin-left: 30px;
+        }
+
+        th, td, tr{
+            color:white;
+            
+        }
+
+        .title_table{
+            color:white;
+        }
+
+        th,tr{
+            text-align: center;
+        }
+
+        .circle-table{
+            color:white;
+            margin-left: 30%;
+        }
+
+        th{
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        td{
+            font-weight: normal;
+            font-size: 14px;
+        }
+
+        .col-md-auto{
+            padding-left: 0px;
+        }
+
+        .table{
+            padding: 0 5px 0 5px;
+            width: 80%;
+        }
+
+        table{
+            width: 100%;
+        }
+
+        .table thead th{
+            border-bottom:0px;
+        }
+
+        .table thead th{
+            border-top: 1px solid #36383F;
+        }
+
+        .search_room{
+            background: #00458F;
+            border:none;
+            cursor: pointer;
+            color:white;
+            border-radius: 20px;
+            outline: none;
+            width: 150px;
+            padding: 2px;
+        }
+
+        .table td{
+            border-top:1px solid #36383F;
+        }
+
+        .select{
+            border: 1px solid #2b2c32;
+        }
+
+        .select:active{
+            background: #202126;
+            border: 1px solid #599DE5;
+            border-top-style: double;
+            border-bottom-style: double;
+        }
+
+        .select:hover{
+            cursor: pointer;
+        }
+
+        .book{
+            width: 100%;
+            height: 300px;
+            border: 1px solid #202126;;
+            background: #202126;;
+            border-radius: 20px;
+        }
+
+        .month{
+            color: white;
+            float: right;
+            font-family: Rubik;
+        font-style: normal;
+        line-height: 22px;
+        font-size: 14px;
+        margin-top: 10px;
+        }
+
+        .day{
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 14px;
+        }
+
+        .num{
+            display: inline-block;
+            color: white;
+            font-size: 14px;
+            
+        }
+
+        img{
+            display: inline-block;
+            opacity: 30%;
+        }
+
+        .week{
+            text-align: center;
+            display: inline-block
+        }
+
+        .booking{
+            border:none
+        }
+
+        .circlec{
+            width: 25px;
+            height: 25px;
+            background-color: #599DE5;
+            -moz-border-radius: 50px;
+            -webkit-border-radius: 50px;
+            border-radius: 50px;
+        }
+
+        hr{
+            border-top:1px solid white
+        }
+
+        #time{
+            font-size: 14px;
+            text-align: center;
+            color:white
+        }
+
+        .circleq{
+            display: inline-block;
+            color:white;
+            margin-top: 0px;
+        }
+
+        .cirq{
+            margin-left: 0px;
+        }
+
+        #circle-aquaq{
+            width: 20px;
+            height: 20px;
+            background-color: #599DE5;
+            -moz-border-radius: 50px;
+            -webkit-border-radius: 50px;
+            border-radius: 50px;
+        }
+
+        .circletext{
+            vertical-align: -webkit-baseline-middle;
+            display: inline-block;
+            font-weight: 300;
+        line-height: 18px;
+        font-size: 12px;
+        }
+
+        .searchq{
+            background-color: #207DDF;
+            border: 1px solid #207DDF;
+            cursor: pointer;
+            color:white;
+            border-radius: 20px;
+            outline: none;
+            padding: 5px 0 5px 0;
+            width: 200px;
+            margin: 10px 0 0 5px;
+        }
+
+        .check{
+            margin-top: 10px;
+            font-weight: 500;
+            line-height: 31px;
+            font-size: 20px;
+            text-align: center;
+            color:white
+        }
+
+        .p{
+            text-align: center;
+            font-size: 14px;
+            color: white;
+        }
+
+        </style>
+</head>
+
+<body>
+    <div class="fluid-container">
+        <div class="row">
+            <div class="col-md-1 offset-md-1 img">
+                <img id="ghost" src="../img/halloween-ghost.png">
+            </div>
+            <div class="col-md-2" id="title">
+                <p>CASPER</p>
+            </div>
+            <div class="col-md-1 offset-md-6">
+                <img id="person" src="../img/twotone_person_black_18dp.png" alt="">
+            </div>
+        </div>
+        <div class="row navigation">
+            <div class="col-md-4 offset-md-1 navigat">
+                <nav class="nav nav-pills nav-fill">
+                    <a class="nav-item nav-link" href="http://localhost:8080/casperit-web/html/tables.html" id="tab_place" >Рабочие места сотрудников</a>
+                    <input type="button" class="nav-item nav-link" style="border-bottom: 2px solid #207DDF" href="#" id="tab_room" value="Переговорки">
+                </nav>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-10 content">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <input type="button" class="offices office_kulman" style="background-color: #00458F; color:white" href="#" value="Программистов, 3">
+                        <input type="button" class="offices office_kuprevicha" href="#" value="Купревича, 14">
+                        <input type="button" class="offices office_kulman" href="#" value="Кульман, 1">
+                        <input type="button" class="offices office_bogdanovicha" href="#" value="М. Богдановича, 155">
+                    </div>
+
+                </div>
+                <div class="row circles">
+                    <div class="col-md-auto offset-md-1">
+                        <div class="circle">
+                            <div class="circle" id="circle-red"></div>
+                            <div class="circle">
+                                <p class="circletext">Переговорка занята</p>
+                            </div>
+                        </div>
+
+                        <div class="circle">
+                            <div class="circle cir" id="circle-gray"></div>
+                            <div class="circle">
+                                <p class="circletext">Переговорка свободна</p>
+                            </div>
+                        </div>
+
+                        <div class="circle">
+                            <div class="circle cir" id="circle-aqua"></div>
+                            <div class="circle">
+                                <p class="circletext">Скоро тут будет совещание</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-md-3 offset-md-1">
+                        <input type="button" class="search " href="#" value="Найти переговорку">
+                    </div>
+
+                </div>
+
+                <div class="row ">
+                    <div class="col-md-7 offset-md-1">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>№</th>
+                                        <th>Статус</th>
+                                        <th>Оснащение</th>
+                                        <th>Вместимость</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="meetingrooms">
+
+                                    <!--
+                                    <tr class="select">
+                                        <td>A101</td>
+                                        <td>
+                                            <div class="circle-table" id="circle-red"></div>
+                                        </td>
+                                        <td>Видеосвязь</td>
+                                        <td>10 человек</td>
+                                        <td>
+                                            <input type="button" class="search_room" href="#" value="Забронировать">
+                                        </td>
+                                    </tr>
+                                    <tr class="select">
+                                        <td>A103</td>
+                                        <td>
+                                            <div class="circle-table" id="circle-gray"></div>
+                                        </td>
+                                        <td>Экран</td>
+                                        <td>8 человек</td>
+                                        <td>
+                                            <input type="button" class="search_room" href="#" value="Забронировать">
+                                        </td>
+                                    </tr>
+                                    <tr class="select">
+                                        <td>B102</td>
+                                        <td>
+                                            <div class="circle-table" id="circle-aqua"></div>
+                                        </td>
+                                        <td>-</td>
+                                        <td>20 человек</td>
+                                        <td>
+                                            <input type="button" class="search_room" href="#" value="Забронировать">
+                                        </td>
+                                    </tr>
+                                    <tr class="select">
+                                        <td>A101</td>
+                                        <td>
+                                            <div class="circle-table" id="circle-red"></div>
+                                        </td>
+                                        <td>-</td>
+                                        <td>10 человек</td>
+                                        <td>
+                                            <input type="button" class="search_room" href="#" value="Забронировать">
+                                        </td>
+                                    </tr>
+                                    <tr class="select">
+                                        <td>A103</td>
+                                        <td>
+                                            <div class="circle-table" id="circle-gray"></div>
+                                        </td>
+                                        <td>Видеосвязь</td>
+                                        <td>15 человек</td>
+                                        <td>
+                                            <input type="button" class="search_room" href="#" value="Забронировать">
+                                        </td>
+                                    </tr>
+                                -->
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                    <div>
+                            <div class="col-md-12 book">
+                                <div class="row">
+                                    <div class="col-md-6 offset-md-6 ">
+                                        <p class="month">Февраль</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8 offset-md-2">
+                                        <div class="row">
+                                                <div class="col-md-1">
+                                                        <span class="day">ПН</span>
+                                                </div>
+                                                <div class="col-md-1">
+                                                        <span class="day">ВТ</span>
+                                                </div>
+                                                <div class="col-md-1">
+                                                        <span class="day">СР</span>
+                                                </div>
+                                                <div class="col-md-1">
+                                                        <span class="day">ЧТ</span>
+                                                </div>
+                                                <div class="col-md-1">
+                                                        <span class="day">ПТ</span>
+                                                </div>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-10 offset-md-1">
+    
+                                            <table cellspacing="0">
+                                                    <td><img src="/img/baseline-chevron_left-24px.svg" alt=""></td>
+                                                     <td class="num">4</td>
+                                                     <td class="num numn">5</td>
+                                                     <td class=" num circlec">6</td>
+                                                     <td class=" num numn">7</td>
+                                                     <td class="num numn">8</td>
+                                                     <td><img src="/img/baseline-chevron_right-24px.svg" alt=""></td>
+                                                    </tr>
+                                                   </table>
+                                                   <hr>
+    
+                                                   <p id="time">Время: </p> <input id="startTimeId" type="text" style="border: black 1px solid; border-radius: 10px; width: 100px;"/> <input id="endTimeId" type="text" style="border: black 1px solid; border-radius: 10px;  width: 100px;"/>
+                                                   <div class="circleq">
+                                                        <div class="circleq cirq" id="circle-aquaq"></div>
+                                                        <div class="circleq">
+                                                            <p class="circletext">Выбранное время</p>
+                                                        </div>
+                                                    </div>
+                                    </div>
+                                    
+                                </div>
+                                
+                                <input type="button" class="searchq" href="#" value="Забронировать" onClick="createNewMeeting()">
+                            </div>
+                        </div>
+                    </div>
+    
+    
+
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
